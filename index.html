@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabri | Video Editor</title>
   <style>
     @font-face {
       font-family: 'Bojack';
@@ -8,21 +11,16 @@
       font-weight: normal;
       font-style: normal;
     }
-  </style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fabri | Video Editor</title>
-  <style>
+
     :root {
       --bg: #0a0810;
       --panel: rgba(255,255,255,0.05);
       --panel-border: rgba(255, 210, 80, 0.25);
       --text: #fdfaf0;
       --muted: #c9c2a5;
-      --accent: #ffd34d; /* yellow main */
-      --accent-2: #9f4dff; /* purple secondary */
+      --accent: #ffd34d;
+      --accent-2: #9f4dff;
       --shadow: 0 0 40px rgba(255, 211, 77, 0.25);
-      --radius: 24px;
       --max: 1220px;
     }
 
@@ -52,7 +50,7 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.28);
-      pointer-events: auto;
+      pointer-events: none;
       z-index: -1;
     }
 
@@ -88,7 +86,7 @@
       font-style: normal;
       letter-spacing: 0.02em;
       display: flex;
-      gap: 2px;
+      gap: 0;
       align-items: center;
     }
 
@@ -108,22 +106,30 @@
       flex-wrap: wrap;
     }
 
-    .pill {
-      padding: 14px 22px;
+    .pill,
+    .ghost-btn,
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 15px 24px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #1a1200;
       font-weight: 800;
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       box-shadow: 0 0 25px rgba(255, 211, 77, 0.35);
+      border: none;
       transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+      white-space: nowrap;
     }
 
     .pill:hover,
     .ghost-btn:hover,
     .cta-btn:hover {
       transform: translateY(-2px);
-      opacity: 0.95;
+      opacity: 0.96;
     }
 
     .hero {
@@ -167,37 +173,6 @@
       gap: 14px;
       margin-top: 30px;
       flex-wrap: wrap;
-    }
-
-    .ghost-btn,
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      padding: 16px 32px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 1rem;
-      line-height: 1;
-      white-space: nowrap;
-      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .ghost-btn {
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #1a1200;
-      font-weight: 800;
-      font-size: 0.96rem;
-      box-shadow: 0 0 25px rgba(255, 211, 77, 0.35);
-      border: none;
-    }
-
-    .cta-btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: var(--shadow);
     }
 
     section {
@@ -268,7 +243,7 @@
     .video-frame {
       position: relative;
       width: 100%;
-      background: #0b0816;
+      background: #000;
     }
 
     .landscape {
@@ -279,26 +254,6 @@
       aspect-ratio: 9 / 16;
     }
 
-    .video-frame iframe,
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  object-fit: cover;
-  background: #000;
-}
-
-.custom-player:fullscreen video,
-.custom-player:-webkit-full-screen video,
-.custom-player:-moz-full-screen video,
-.custom-player:-ms-fullscreen video {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  background: #000;
-}
-
     .custom-player {
       position: relative;
       width: 100%;
@@ -308,14 +263,41 @@
     }
 
     .custom-player video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #000;
+      object-fit: contain;
       cursor: pointer;
+    }
+
+    .custom-player:fullscreen,
+    .custom-player:-webkit-full-screen,
+    .custom-player:-moz-full-screen,
+    .custom-player:-ms-fullscreen {
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-player:fullscreen video,
+    .custom-player:-webkit-full-screen video,
+    .custom-player:-moz-full-screen video,
+    .custom-player:-ms-fullscreen video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
     }
 
     .player-overlay {
       position: absolute;
       inset: auto 0 0 0;
       padding: 18px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.08), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.08), transparent);
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -326,7 +308,10 @@
 
     .custom-player:hover .player-overlay,
     .custom-player:focus-within .player-overlay,
-    .custom-player.playing .player-overlay {
+    .custom-player.playing .player-overlay,
+    .custom-player.paused .player-overlay,
+    .custom-player:fullscreen .player-overlay,
+    .custom-player:-webkit-full-screen .player-overlay {
       opacity: 1;
     }
 
@@ -336,18 +321,27 @@
       align-items: center;
     }
 
-    .progress {
+    .progress,
+    .volume {
       -webkit-appearance: none;
       appearance: none;
-      width: 100%;
       height: 6px;
       border-radius: 999px;
       background: rgba(255,255,255,0.18);
-      outline: none;
       cursor: pointer;
+      outline: none;
     }
 
-    .progress::-webkit-slider-thumb {
+    .progress {
+      width: 100%;
+    }
+
+    .volume {
+      width: 90px;
+    }
+
+    .progress::-webkit-slider-thumb,
+    .volume::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
       width: 14px;
@@ -358,7 +352,8 @@
       box-shadow: 0 0 0 3px rgba(255,255,255,0.14);
     }
 
-    .progress::-moz-range-thumb {
+    .progress::-moz-range-thumb,
+    .volume::-moz-range-thumb {
       width: 14px;
       height: 14px;
       border-radius: 50%;
@@ -367,7 +362,8 @@
       box-shadow: 0 0 0 3px rgba(255,255,255,0.14);
     }
 
-    .progress::-moz-range-track {
+    .progress::-moz-range-track,
+    .volume::-moz-range-track {
       height: 6px;
       border-radius: 999px;
       background: rgba(255,255,255,0.18);
@@ -414,49 +410,22 @@
       font-size: 0.92rem;
       font-weight: 700;
       letter-spacing: 0.01em;
-      min-width: 88px;
+      min-width: 96px;
     }
 
-    .volume {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 90px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.18);
-      cursor: pointer;
+    .play-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+      pointer-events: auto;
+      transition: opacity 0.25s ease;
     }
-
-    .volume::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #fff;
-      border: 0;
-    }
-
-    .volume::-moz-range-thumb {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #fff;
-      border: 0;
-    }
-
-   .play-center {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  z-index: 2;
-  pointer-events: auto;
-  transition: opacity 0.25s ease;
-}
 
     .custom-player.playing .play-center {
       opacity: 0;
+      pointer-events: none;
     }
 
     .play-center span {
@@ -472,37 +441,7 @@
       color: #fff;
       font-size: 1.5rem;
       box-shadow: 0 12px 30px rgba(0,0,0,0.24);
-    }
-
-    @media (max-width: 640px) {
-      .player-controls {
-        align-items: flex-start;
-      }
-
-      .player-right {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .volume {
-        width: 72px;
-      }
-    }
-
-    .mute-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      font-size: 1rem;
-      z-index: 2;
+      cursor: pointer;
     }
 
     .card-body {
@@ -556,10 +495,6 @@
     .center-cta {
       text-align: center;
       margin-top: 34px;
-    }
-
-    .center-cta .cta-btn {
-      min-width: 240px;
     }
 
     .footer {
@@ -643,14 +578,27 @@
         width: min(var(--max), calc(100% - 28px));
       }
     }
+
+    @media (max-width: 640px) {
+      .player-controls {
+        align-items: flex-start;
+      }
+
+      .player-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .volume {
+        width: 72px;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="#home" class="logo">
-        <span class="b">F</span><span>abri</span>
-      </a>
+      <a href="#home" class="logo"><span class="b">F</span><span>abri</span></a>
       <nav class="nav-links">
         <a class="pill" href="#work">Work</a>
         <a class="pill" href="#contact">Hire Me</a>
@@ -700,7 +648,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -727,7 +675,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -770,7 +718,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -783,7 +731,7 @@
             </div>
             <div class="card-body">
               <h3>Short-form Clip 01</h3>
-              <p>Replace with your best short-form edit link.</p>
+              <p>Replace with your best short-form edit here.</p>
             </div>
           </article>
 
@@ -797,7 +745,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -824,7 +772,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -851,7 +799,7 @@
                   <div class="player-controls">
                     <div class="player-left">
                       <button class="player-btn play-toggle" type="button">▶</button>
-                      <button class="player-btn mute-toggle" type="button">🔊</button>
+                      <button class="player-btn mute-toggle" type="button">🔇</button>
                       <span class="player-time">0:00 / 0:00</span>
                     </div>
                     <div class="player-right">
@@ -937,9 +885,7 @@
           entry.target.classList.add('show');
         }
       });
-    }, {
-      threshold: 0.14
-    });
+    }, { threshold: 0.14 });
 
     revealElements.forEach((el) => {
       if (!el.classList.contains('show')) observer.observe(el);
@@ -963,13 +909,14 @@
       const centerPlay = player.querySelector('.play-center');
 
       video.muted = true;
+      video.volume = 1;
       volume.value = 1;
 
       const updatePlayState = () => {
         const isPaused = video.paused;
         player.classList.toggle('playing', !isPaused);
+        player.classList.toggle('paused', isPaused);
         playBtn.textContent = isPaused ? '▶' : '❚❚';
-        centerPlay.style.opacity = isPaused ? '1' : '0';
       };
 
       const updateMuteState = () => {
@@ -983,12 +930,18 @@
         time.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
       };
 
-      const togglePlay = () => {
+      const pauseOthers = () => {
         document.querySelectorAll('.custom-player video').forEach((otherVideo) => {
           if (otherVideo !== video) otherVideo.pause();
         });
+      };
+
+      const togglePlay = async () => {
+        pauseOthers();
         if (video.paused) {
-          video.play();
+          try {
+            await video.play();
+          } catch (e) {}
         } else {
           video.pause();
         }
@@ -997,6 +950,7 @@
       playBtn.addEventListener('click', togglePlay);
       video.addEventListener('click', togglePlay);
       centerPlay.addEventListener('click', togglePlay);
+      centerPlay.querySelector('span').addEventListener('click', togglePlay);
 
       muteBtn.addEventListener('click', () => {
         video.muted = !video.muted;
@@ -1004,31 +958,34 @@
       });
 
       volume.addEventListener('input', () => {
-        video.volume = volume.value;
+        video.volume = Number(volume.value);
         video.muted = Number(volume.value) === 0;
         updateMuteState();
       });
 
       progress.addEventListener('input', () => {
         if (video.duration) {
-          video.currentTime = (progress.value / 100) * video.duration;
+          video.currentTime = (Number(progress.value) / 100) * video.duration;
         }
       });
 
       fullscreenBtn.addEventListener('click', async () => {
-        if (!document.fullscreenElement) {
-          await player.requestFullscreen?.();
-        } else {
-          await document.exitFullscreen?.();
-        }
+        try {
+          if (!document.fullscreenElement) {
+            await player.requestFullscreen();
+          } else {
+            await document.exitFullscreen();
+          }
+        } catch (e) {}
       });
 
-      video.addEventListener('timeupdate', updateProgress);
       video.addEventListener('loadedmetadata', updateProgress);
+      video.addEventListener('timeupdate', updateProgress);
       video.addEventListener('play', updatePlayState);
       video.addEventListener('pause', updatePlayState);
       video.addEventListener('volumechange', updateMuteState);
       video.addEventListener('ended', updatePlayState);
+      video.addEventListener('loadeddata', updateProgress);
 
       updatePlayState();
       updateMuteState();
