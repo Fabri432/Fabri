@@ -992,8 +992,10 @@
 
       playBtn.addEventListener('click', togglePlay);
       video.addEventListener('click', togglePlay);
-      centerPlay.addEventListener('click', togglePlay);
-      centerPlay.querySelector('span').addEventListener('click', togglePlay);
+      centerPlay.querySelector('span').addEventListener('click', (e) => {
+  e.stopPropagation();
+  togglePlay();
+});
 
       muteBtn.addEventListener('click', () => {
         video.muted = !video.muted;
