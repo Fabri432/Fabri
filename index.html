@@ -911,7 +911,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame landscape">
               <div class="custom-player">
-                <video src="longform1.mp4" playsinline preload="metadata"></video>
+                <video src="longform1.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -937,7 +937,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame landscape">
               <div class="custom-player">
-                <video src="longform2.mp4" playsinline preload="metadata"></video>
+                <video src="longform2.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -979,7 +979,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame portrait">
               <div class="custom-player">
-                <video src="shorts1.mp4" playsinline preload="metadata"></video>
+                <video src="shorts1.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -1005,7 +1005,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame portrait">
               <div class="custom-player">
-                <video src="shorts2.mp4" playsinline preload="metadata"></video>
+                <video src="shorts2.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -1031,7 +1031,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame portrait">
               <div class="custom-player">
-               <video src="shorts3.mp4" playsinline preload="metadata"></video>
+               <video src="shorts3.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -1057,7 +1057,7 @@ built to keep attention.
           <article class="video-card reveal">
             <div class="video-frame portrait">
               <div class="custom-player">
-                <video src="shorts4.mp4" playsinline preload="metadata"></video>
+                <video src="shorts4.mp4" playsinline webkit-playsinline preload="metadata"></video>
                 <div class="play-center"><span>▶</span></div>
                 <div class="player-overlay">
                   <div class="progress-wrap"><input class="progress" type="range" min="0" max="100" value="0"></div>
@@ -1262,11 +1262,11 @@ if (prefersReducedMotion) {
         const isPaused = video.paused;
         player.classList.toggle('playing', !isPaused);
         player.classList.toggle('paused', isPaused);
-        playBtn.textContent = isPaused ? '▶' : '❚❚';
+        playBtn.innerHTML = isPaused ? '&#9654;' : '&#10074;&#10074;';
       };
 
       const updateMuteState = () => {
-        muteBtn.textContent = video.muted || video.volume === 0 ? '🔇' : '🔊';
+        muteBtn.innerHTML = video.muted ? || video.volume === 0 ? '&#128263;' : '&#128266;';
       };
 
       const updateProgress = () => {
@@ -1314,19 +1314,19 @@ if (prefersReducedMotion) {
         }
       });
 
-      fullscreenBtn.addEventListener('click', async () => {
+      fullscreenBtn.addEventListener('click', () => {
   try {
-    if (document.fullscreenElement) {
-      await document.exitFullscreen();
+    // iOS Safari (MOST IMPORTANT)
+    if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen();
       return;
     }
 
-    if (video.requestFullscreen) {
-      await video.requestFullscreen();
-    } else if (video.webkitEnterFullscreen) {
-      video.webkitEnterFullscreen();
+    // Other browsers
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
     } else if (player.requestFullscreen) {
-      await player.requestFullscreen();
+      player.requestFullscreen();
     }
   } catch (e) {}
 });
