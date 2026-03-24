@@ -144,6 +144,7 @@
     .hero-actions {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 14px;
       margin-top: 30px;
       flex-wrap: wrap;
@@ -159,7 +160,10 @@
       border-radius: 999px;
       font-weight: 800;
       font-size: 1rem;
-      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow
+      line-height: 1;
+      white-space: nowrap;
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+    }
 
     .ghost-btn {
       padding: 14px 22px;
@@ -331,6 +335,10 @@
     .center-cta {
       text-align: center;
       margin-top: 34px;
+    }
+
+    .center-cta .cta-btn {
+      min-width: 240px;
     }
 
     .footer {
