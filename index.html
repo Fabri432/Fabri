@@ -178,6 +178,92 @@ body {
       flex-wrap: wrap;
     }
 
+    .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pricing-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: 0 0 20px rgba(255, 211, 77, 0.08);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 211, 77, 0.45);
+  box-shadow: 0 0 28px rgba(255, 211, 77, 0.14);
+}
+
+.pricing-tag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 211, 77, 0.12);
+  border: 1px solid rgba(255, 211, 77, 0.25);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.pricing-card h3 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(255, 211, 77, 0.22);
+}
+
+.pricing-subtext {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.pricing-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.pricing-note {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(159, 77, 255, 0.10);
+  border: 1px solid rgba(159, 77, 255, 0.18);
+  color: #f3dcff;
+  font-weight: 800;
+  text-align: center;
+}
+
+.pricing-bottom {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 20px rgba(255, 211, 77, 0.06);
+}
+
+.pricing-bottom p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+@media (max-width: 820px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    
    .channels {
   margin-top: 42px;
   display: flex;
@@ -1099,6 +1185,48 @@ body {
       </div>
     </section>
 
+<section id="pricing">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Pricing</h2>
+      <div class="line"></div>
+      <p>
+        Clear starting prices for each format. <span class="accent-text">Prices are negotiable</span> depending on complexity,
+        editing style, amount of footage, and turnaround time.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="pricing-card reveal">
+        <span class="pricing-tag">Short-form</span>
+        <h3>$25</h3>
+        <p class="pricing-subtext">Starting price</p>
+        <p>
+          Perfect for TikTok, Reels, YouTube Shorts, gaming clips, and fast-paced social media edits.
+        </p>
+        <div class="pricing-note">Negotiable depending on the project.</div>
+      </article>
+
+      <article class="pricing-card reveal">
+        <span class="pricing-tag">Long-form</span>
+        <h3>$50</h3>
+        <p class="pricing-subtext">Starting price</p>
+        <p>
+          Great for YouTube videos, commentary, gameplay videos, streams, and polished horizontal content.
+        </p>
+        <div class="pricing-note">Negotiable depending on the project.</div>
+      </article>
+    </div>
+
+    <div class="pricing-bottom reveal">
+      <p>
+        <strong>Important:</strong> These are base prices only — <span class="accent-text">everything can be negotiated</span>
+        based on video length, style, effects, subtitles, and delivery speed.
+      </p>
+    </div>
+  </div>
+</section>
+    
 <section id="reviews">
   <div class="container">
     <div class="section-heading reveal">
