@@ -229,6 +229,8 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 0 24px rgba(255, 211, 77, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .channel-card img {
@@ -242,6 +244,11 @@ body {
 .channel-card:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 0 34px rgba(255, 211, 77, 0.35);
+}
+
+.channel-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
 }
     .stats-strip {
   margin-top: 34px;
@@ -877,17 +884,17 @@ built to keep attention.
 </div>
 
 <div class="channels">
-  <div class="channel-card reveal channel-1">
+  <a class="channel-card reveal channel-1" href="https://www.youtube.com/@fabrirblx5780" target="_blank" rel="noopener noreferrer" aria-label="Fabri Rblx YouTube channel">
     <img src="logo-rblx.png" alt="Fabri Rblx logo">
-  </div>
+  </a>
 
-  <div class="channel-card reveal channel-2">
+  <a class="channel-card reveal channel-2" href="https://www.youtube.com/@FabriYTCanal" target="_blank" rel="noopener noreferrer" aria-label="FabriYT YouTube channel">
     <img src="logo-yt.png" alt="FabriYT logo">
-  </div>
+  </a>
 
-  <div class="channel-card reveal channel-3">
+  <a class="channel-card reveal channel-3" href="https://www.youtube.com/@fabriminecraft8677" target="_blank" rel="noopener noreferrer" aria-label="Fabri Minecraft YouTube channel">
     <img src="logo-mc.png" alt="Fabri Minecraft logo">
-  </div>
+  </a>
 </div>
 
 <div class="stats-strip reveal">
