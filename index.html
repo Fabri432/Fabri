@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,7 +52,7 @@ body {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65); /* darker = better contrast */
+  background: rgba(0, 0, 0, 0.65);
   pointer-events: none;
   z-index: -1;
 }
@@ -628,10 +628,10 @@ body {
   justify-content: center;
   gap: 14px;
 
-  padding: 22px 36px; /* 🔥 bigger */
+  padding: 22px 36px;
   border-radius: 26px;
 
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); /* 🔥 nicer */
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border: none;
 
   color: #1a1200;
@@ -857,8 +857,8 @@ body {
     <div class="container nav">
       <a href="#home" class="logo"><span class="b">F</span><span>abri</span></a>
       <nav class="nav-links">
-        <a class="pill" href="#work">Work</a>
-        <a class="pill" href="#contact">Hire Me</a>
+        <a class="pill" href="#work" data-i18n="navWork">Work</a>
+        <a class="pill" href="#contact" data-i18n="navHire">Hire Me</a>
       </nav>
     </div>
   </header>
@@ -867,21 +867,20 @@ body {
     <section class="hero" id="home">
       <div class="container hero-inner">
         <h1 class="reveal">
-  I turn your ideas into
-  <span class="accent-line">high-impact videos</span>
-</h1>
+          <span data-i18n="heroTitleTop">I turn your ideas into</span>
+          <span class="accent-line" data-i18n="heroTitleAccent">high-impact videos</span>
+        </h1>
 
-<p class="reveal">
-Video editor with 4+ years of experience. I focus on creating clean, dynamic, scroll-stopping content for creators, brands,
-and channels. I adapt to your style and make sure every video feels polished, engaging, and 
-built to keep attention.
+        <p class="reveal" data-i18n="heroDesc">
+          Video editor with 4+ years of experience. I focus on creating clean, dynamic, scroll-stopping content for creators, brands,
+          and channels. I adapt to your style and make sure every video feels polished, engaging, and 
+          built to keep attention.
+        </p>
 
-</p>
-
-<div class="hero-actions reveal">
-  <a class="ghost-btn" href="#work">Explore My Work</a>
-  <a class="cta-btn" href="#contact">Let’s Work Together</a>
-</div>
+        <div class="hero-actions reveal">
+          <a class="ghost-btn" href="#work" data-i18n="heroBtnWork">Explore My Work</a>
+          <a class="cta-btn" href="#contact" data-i18n="heroBtnContact">Let’s Work Together</a>
+        </div>
 
 <div class="channels">
   <a class="channel-card reveal channel-1" href="https://www.youtube.com/@fabrirblx5780" target="_blank" rel="noopener noreferrer" aria-label="Fabri Rblx YouTube channel">
@@ -900,12 +899,12 @@ built to keep attention.
 <div class="stats-strip reveal">
   <div class="stat-box">
     <span class="stat-number" data-target="120" data-suffix="k+">0</span>
-    <span class="stat-label">Subscribers</span>
+    <span class="stat-label" data-i18n="statSubscribers">Subscribers</span>
   </div>
 
   <div class="stat-box">
     <span class="stat-number" data-target="10" data-suffix="m+">0</span>
-    <span class="stat-label">Views</span>
+    <span class="stat-label" data-i18n="statViews">Views</span>
   </div>
 </div>
       </div>
@@ -914,12 +913,13 @@ built to keep attention.
     <section id="work">
       <div class="container">
         <div class="section-heading reveal">
-          <h2>Long-form videos</h2>
+          <h2 data-i18n="longTitle">Long-form videos</h2>
           <div class="line"></div>
           <p>
-            I edit YouTube videos and horizontal content with <span class="accent-text">strong rhythm</span>,
-            sharp pacing, and visuals designed to hold attention. I can also turn streams or raw recordings 
-            into polished long-form content with <span class="accent-text">best moments highlighted</span>.
+            <span data-i18n="longDesc1">I edit YouTube videos and horizontal content with</span>
+            <span class="accent-text" data-i18n="longAccent1">strong rhythm</span>,
+            <span data-i18n="longDesc2">sharp pacing, and visuals designed to hold attention. I can also turn streams or raw recordings into polished long-form content with</span>
+            <span class="accent-text" data-i18n="longAccent2">best moments highlighted</span>.
           </p>
         </div>
 
@@ -946,7 +946,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Long-form Showcase 01</h3>
+              <h3 data-i18n="longShowcase1">Long-form Showcase 01</h3>
             </div>
           </article>
 
@@ -972,7 +972,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Long-form Showcase 02</h3>
+              <h3 data-i18n="longShowcase2">Long-form Showcase 02</h3>
             </div>
           </article>
         </div>
@@ -982,12 +982,12 @@ built to keep attention.
     <section id="shorts">
       <div class="container">
         <div class="section-heading reveal">
-          <h2>Short-form videos</h2>
+          <h2 data-i18n="shortTitle">Short-form videos</h2>
           <div class="line"></div>
           <p>
-            I create vertical content for TikTok, Instagram Reels, and YouTube Shorts with <span class="accent-text">fast hooks</span>,
-            subtitles, dynamic motion, and edits built to stop the scroll. These are ideal for viral-style clips, 
-            talking-head videos, gaming edits, and social media growth content.
+            <span data-i18n="shortDesc1">I create vertical content for TikTok, Instagram Reels, and YouTube Shorts with</span>
+            <span class="accent-text" data-i18n="shortAccent1">fast hooks</span>,
+            <span data-i18n="shortDesc2">subtitles, dynamic motion, and edits built to stop the scroll. These are ideal for viral-style clips, talking-head videos, gaming edits, and social media growth content.</span>
           </p>
         </div>
 
@@ -1014,7 +1014,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Short-form Clip 01</h3>
+              <h3 data-i18n="shortClip1">Short-form Clip 01</h3>
             </div>
           </article>
 
@@ -1040,7 +1040,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Short-form Clip 02</h3>
+              <h3 data-i18n="shortClip2">Short-form Clip 02</h3>
             </div>
           </article>
 
@@ -1066,7 +1066,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Short-form Clip 03</h3>
+              <h3 data-i18n="shortClip3">Short-form Clip 03</h3>
             </div>
           </article>
 
@@ -1092,7 +1092,7 @@ built to keep attention.
               </div>
             </div>
             <div class="card-body">
-              <h3>Short-form Clip 04</h3>
+              <h3 data-i18n="shortClip4">Short-form Clip 04</h3>
             </div>
           </article>
         </div>
@@ -1102,9 +1102,9 @@ built to keep attention.
 <section id="reviews">
   <div class="container">
     <div class="section-heading reveal">
-      <h2>Client reviews</h2>
+      <h2 data-i18n="reviewsTitle">Client reviews</h2>
       <div class="line"></div>
-      <p>
+      <p data-i18n="reviewsDesc">
         What people say about working with me.
       </p>
     </div>
@@ -1129,20 +1129,20 @@ built to keep attention.
       </div>
 
       <form class="review-form reveal" id="reviewForm">
-        <input type="text" id="reviewName" placeholder="Your name" maxlength="30" required>
+        <input type="text" id="reviewName" data-i18n-placeholder="reviewNamePlaceholder" placeholder="Your name" maxlength="30" required>
 
         <select id="reviewStars" required>
-          <option value="">Rating</option>
-          <option value="5">5 Stars</option>
-          <option value="4">4 Stars</option>
-          <option value="3">3 Stars</option>
-          <option value="2">2 Stars</option>
-          <option value="1">1 Star</option>
+          <option value="" data-i18n="reviewRating">Rating</option>
+          <option value="5" data-i18n="review5">5 Stars</option>
+          <option value="4" data-i18n="review4">4 Stars</option>
+          <option value="3" data-i18n="review3">3 Stars</option>
+          <option value="2" data-i18n="review2">2 Stars</option>
+          <option value="1" data-i18n="review1">1 Star</option>
         </select>
 
-        <textarea id="reviewMessage" placeholder="Write a short review..." maxlength="140" required></textarea>
+        <textarea id="reviewMessage" data-i18n-placeholder="reviewMessagePlaceholder" placeholder="Write a short review..." maxlength="140" required></textarea>
 
-        <button type="submit" class="review-submit">Leave a review</button>
+        <button type="submit" class="review-submit" data-i18n="reviewSubmit">Leave a review</button>
       </form>
     </div>
   </div>
@@ -1151,39 +1151,39 @@ built to keep attention.
     <section id="why-me">
       <div class="container">
         <div class="section-heading reveal">
-          <h2>Why work with me?</h2>
+          <h2 data-i18n="whyTitle">Why work with me?</h2>
           <div class="line"></div>
         </div>
 
         <div class="features-grid">
           <article class="feature-card reveal">
-            <h3>Strong visual impact</h3>
-            <p>I build videos that feel alive through pacing, sound design, and visuals that hit with intention.</p>
+            <h3 data-i18n="feature1Title">Strong visual impact</h3>
+            <p data-i18n="feature1Desc">I build videos that feel alive through pacing, sound design, and visuals that hit with intention.</p>
           </article>
 
           <article class="feature-card reveal">
-            <h3>Team-oriented workflow</h3>
-            <p>I work closely with you so the final edit reflects your style, goals, and the exact feeling you want.</p>
+            <h3 data-i18n="feature2Title">Team-oriented workflow</h3>
+            <p data-i18n="feature2Desc">I work closely with you so the final edit reflects your style, goals, and the exact feeling you want.</p>
           </article>
 
           <article class="feature-card reveal">
-            <h3>Retention-focused editing</h3>
-            <p>I shape raw footage into content that keeps viewers watching with smoother structure and cleaner flow.</p>
+            <h3 data-i18n="feature3Title">Retention-focused editing</h3>
+            <p data-i18n="feature3Desc">I shape raw footage into content that keeps viewers watching with smoother structure and cleaner flow.</p>
           </article>
 
           <article class="feature-card reveal">
-            <h3>Multiple formats</h3>
-            <p>From vertical social content to horizontal YouTube videos, I edit for the platform and audience you need.</p>
+            <h3 data-i18n="feature4Title">Multiple formats</h3>
+            <p data-i18n="feature4Desc">From vertical social content to horizontal YouTube videos, I edit for the platform and audience you need.</p>
           </article>
 
           <article class="feature-card reveal">
-            <h3>Clean motion and polish</h3>
-            <p>Transitions, text, subtitles, and motion details come together for a professional final look.</p>
+            <h3 data-i18n="feature5Title">Clean motion and polish</h3>
+            <p data-i18n="feature5Desc">Transitions, text, subtitles, and motion details come together for a professional final look.</p>
           </article>
 
           <article class="feature-card reveal">
-            <h3>Fast communication</h3>
-            <p>I stay clear and responsive throughout the project so you always know where everything stands.</p>
+            <h3 data-i18n="feature6Title">Fast communication</h3>
+            <p data-i18n="feature6Desc">I stay clear and responsive throughout the project so you always know where everything stands.</p>
           </article>
         </div>
       </div>
@@ -1196,66 +1196,260 @@ built to keep attention.
         <a class="social-link" href="https://discord.com/users/1381023990306312255" target="_blank" rel="noopener noreferrer">Discord: @fabrizioneyra12</a>
         <a class="social-link" href="mailto:fabribusiness76@gmail.com">Email: fabribusiness76@gmail.com</a>
       </div>
-      <p class="copyright">© 2026 FABRI. All rights reserved.</p>
+      <p class="copyright" data-i18n="copyright">© 2026 FABRI. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     document.documentElement.classList.add('js');
+
+    const translations = {
+      en: {
+        navWork: "Work",
+        navHire: "Hire Me",
+
+        heroTitleTop: "I turn your ideas into",
+        heroTitleAccent: "high-impact videos",
+        heroDesc: "Video editor with 4+ years of experience. I focus on creating clean, dynamic, scroll-stopping content for creators, brands, and channels. I adapt to your style and make sure every video feels polished, engaging, and built to keep attention.",
+        heroBtnWork: "Explore My Work",
+        heroBtnContact: "Let’s Work Together",
+
+        statSubscribers: "Subscribers",
+        statViews: "Views",
+
+        longTitle: "Long-form videos",
+        longDesc1: "I edit YouTube videos and horizontal content with",
+        longAccent1: "strong rhythm",
+        longDesc2: "sharp pacing, and visuals designed to hold attention. I can also turn streams or raw recordings into polished long-form content with",
+        longAccent2: "best moments highlighted",
+        longShowcase1: "Long-form Showcase 01",
+        longShowcase2: "Long-form Showcase 02",
+
+        shortTitle: "Short-form videos",
+        shortDesc1: "I create vertical content for TikTok, Instagram Reels, and YouTube Shorts with",
+        shortAccent1: "fast hooks",
+        shortDesc2: "subtitles, dynamic motion, and edits built to stop the scroll. These are ideal for viral-style clips, talking-head videos, gaming edits, and social media growth content.",
+        shortClip1: "Short-form Clip 01",
+        shortClip2: "Short-form Clip 02",
+        shortClip3: "Short-form Clip 03",
+        shortClip4: "Short-form Clip 04",
+
+        reviewsTitle: "Client reviews",
+        reviewsDesc: "What people say about working with me.",
+        reviewNamePlaceholder: "Your name",
+        reviewRating: "Rating",
+        review5: "5 Stars",
+        review4: "4 Stars",
+        review3: "3 Stars",
+        review2: "2 Stars",
+        review1: "1 Star",
+        reviewMessagePlaceholder: "Write a short review...",
+        reviewSubmit: "Leave a review",
+
+        whyTitle: "Why work with me?",
+        feature1Title: "Strong visual impact",
+        feature1Desc: "I build videos that feel alive through pacing, sound design, and visuals that hit with intention.",
+        feature2Title: "Team-oriented workflow",
+        feature2Desc: "I work closely with you so the final edit reflects your style, goals, and the exact feeling you want.",
+        feature3Title: "Retention-focused editing",
+        feature3Desc: "I shape raw footage into content that keeps viewers watching with smoother structure and cleaner flow.",
+        feature4Title: "Multiple formats",
+        feature4Desc: "From vertical social content to horizontal YouTube videos, I edit for the platform and audience you need.",
+        feature5Title: "Clean motion and polish",
+        feature5Desc: "Transitions, text, subtitles, and motion details come together for a professional final look.",
+        feature6Title: "Fast communication",
+        feature6Desc: "I stay clear and responsive throughout the project so you always know where everything stands.",
+
+        copyright: "© 2026 FABRI. All rights reserved."
+      },
+
+      es: {
+        navWork: "Trabajos",
+        navHire: "Contrátame",
+
+        heroTitleTop: "Convierto tus ideas en",
+        heroTitleAccent: "videos de alto impacto",
+        heroDesc: "Editor de video con más de 4 años de experiencia. Me enfoco en crear contenido limpio, dinámico y llamativo para creadores, marcas y canales. Me adapto a tu estilo y me aseguro de que cada video se vea pulido, atractivo y hecho para mantener la atención.",
+        heroBtnWork: "Ver mi trabajo",
+        heroBtnContact: "Trabajemos juntos",
+
+        statSubscribers: "Suscriptores",
+        statViews: "Vistas",
+
+        longTitle: "Videos largos",
+        longDesc1: "Edito videos de YouTube y contenido horizontal con",
+        longAccent1: "ritmo fuerte",
+        longDesc2: "edición dinámica y visuales diseñados para mantener la atención. También puedo convertir streams o grabaciones en contenido largo pulido con",
+        longAccent2: "los mejores momentos destacados",
+        longShowcase1: "Muestra de video largo 01",
+        longShowcase2: "Muestra de video largo 02",
+
+        shortTitle: "Videos cortos",
+        shortDesc1: "Creo contenido vertical para TikTok, Instagram Reels y YouTube Shorts con",
+        shortAccent1: "ganchos rápidos",
+        shortDesc2: "subtítulos, movimiento dinámico y ediciones hechas para detener el scroll. Son ideales para clips virales, videos hablados, edits gaming y contenido para crecer en redes sociales.",
+        shortClip1: "Clip corto 01",
+        shortClip2: "Clip corto 02",
+        shortClip3: "Clip corto 03",
+        shortClip4: "Clip corto 04",
+
+        reviewsTitle: "Reseñas de clientes",
+        reviewsDesc: "Lo que dice la gente sobre trabajar conmigo.",
+        reviewNamePlaceholder: "Tu nombre",
+        reviewRating: "Calificación",
+        review5: "5 estrellas",
+        review4: "4 estrellas",
+        review3: "3 estrellas",
+        review2: "2 estrellas",
+        review1: "1 estrella",
+        reviewMessagePlaceholder: "Escribe una reseña corta...",
+        reviewSubmit: "Dejar una reseña",
+
+        whyTitle: "¿Por qué trabajar conmigo?",
+        feature1Title: "Gran impacto visual",
+        feature1Desc: "Creo videos que se sienten vivos gracias al ritmo, al diseño de sonido y a visuales con intención.",
+        feature2Title: "Trabajo en equipo",
+        feature2Desc: "Trabajo de cerca contigo para que la edición final refleje tu estilo, tus objetivos y la sensación exacta que buscas.",
+        feature3Title: "Edición enfocada en retención",
+        feature3Desc: "Transformo material en bruto en contenido que mantiene a la audiencia mirando con una estructura más fluida y clara.",
+        feature4Title: "Múltiples formatos",
+        feature4Desc: "Desde contenido vertical para redes hasta videos horizontales para YouTube, edito según la plataforma y audiencia que necesites.",
+        feature5Title: "Movimiento limpio y acabado profesional",
+        feature5Desc: "Transiciones, texto, subtítulos y detalles de movimiento se unen para un resultado final profesional.",
+        feature6Title: "Comunicación rápida",
+        feature6Desc: "Me mantengo claro y atento durante todo el proyecto para que siempre sepas en qué estado está todo.",
+
+        copyright: "© 2026 FABRI. Todos los derechos reservados."
+      }
+    };
+
+    const southAmericaTimezones = [
+      "America/Argentina/Buenos_Aires",
+      "America/Argentina/Cordoba",
+      "America/Argentina/Salta",
+      "America/Argentina/Jujuy",
+      "America/Argentina/Tucuman",
+      "America/Argentina/Catamarca",
+      "America/Argentina/La_Rioja",
+      "America/Argentina/San_Juan",
+      "America/Argentina/Mendoza",
+      "America/Argentina/San_Luis",
+      "America/Argentina/Rio_Gallegos",
+      "America/Argentina/Ushuaia",
+      "America/La_Paz",
+      "America/Sao_Paulo",
+      "America/Rio_Branco",
+      "America/Manaus",
+      "America/Belem",
+      "America/Fortaleza",
+      "America/Recife",
+      "America/Araguaina",
+      "America/Maceio",
+      "America/Bahia",
+      "America/Cuiaba",
+      "America/Campo_Grande",
+      "America/Porto_Velho",
+      "America/Boa_Vista",
+      "America/Santarem",
+      "America/Noronha",
+      "America/Santiago",
+      "America/Punta_Arenas",
+      "America/Bogota",
+      "America/Guayaquil",
+      "Pacific/Galapagos",
+      "America/Guyana",
+      "America/Asuncion",
+      "America/Lima",
+      "America/Paramaribo",
+      "America/Montevideo",
+      "America/Caracas",
+      "America/Cayenne"
+    ];
+
+    function detectSiteLanguage() {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      const isSouthAmerica = southAmericaTimezones.includes(timezone);
+      return isSouthAmerica ? "es" : "en";
+    }
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.en;
+
+      document.documentElement.lang = lang;
+      document.documentElement.dataset.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.dataset.i18nPlaceholder;
+        if (dict[key]) {
+          el.placeholder = dict[key];
+        }
+      });
+    }
+
+    const siteLanguage = detectSiteLanguage();
+    applyTranslations(siteLanguage);
+
     const revealElements = document.querySelectorAll('.reveal');
 
-const showVisibleReveals = () => {
-  revealElements.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.96) {
-      el.classList.add('show');
+    const showVisibleReveals = () => {
+      revealElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.96) {
+          el.classList.add('show');
+        }
+      });
+    };
+
+    const showAllReveals = () => {
+      revealElements.forEach((el) => el.classList.add('show'));
+    };
+
+    const isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    requestAnimationFrame(showVisibleReveals);
+    setTimeout(showVisibleReveals, 100);
+
+    if (prefersReducedMotion) {
+      showAllReveals();
+    } else if (!('IntersectionObserver' in window) || isAppleDevice || isTouchDevice) {
+      window.addEventListener('load', () => {
+        requestAnimationFrame(() => {
+          showVisibleReveals();
+          setTimeout(showVisibleReveals, 120);
+          setTimeout(showVisibleReveals, 400);
+        });
+      });
+
+      window.addEventListener('scroll', showVisibleReveals, { passive: true });
+      window.addEventListener('resize', showVisibleReveals);
+    } else {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            entry.target.classList.add('show');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.01,
+        rootMargin: '0px 0px -5% 0px'
+      });
+
+      revealElements.forEach((el) => {
+        if (!el.classList.contains('show')) observer.observe(el);
+      });
+
+      window.addEventListener('load', showVisibleReveals);
     }
-  });
-};
-
-const showAllReveals = () => {
-  revealElements.forEach((el) => el.classList.add('show'));
-};
-
-const isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
-const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-requestAnimationFrame(showVisibleReveals);
-setTimeout(showVisibleReveals, 100);
-
-if (prefersReducedMotion) {
-  showAllReveals();
-} else if (!('IntersectionObserver' in window) || isAppleDevice || isTouchDevice) {
-  window.addEventListener('load', () => {
-    requestAnimationFrame(() => {
-      showVisibleReveals();
-      setTimeout(showVisibleReveals, 120);
-      setTimeout(showVisibleReveals, 400);
-    });
-  });
-
-  window.addEventListener('scroll', showVisibleReveals, { passive: true });
-  window.addEventListener('resize', showVisibleReveals);
-} else {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting || entry.intersectionRatio > 0) {
-        entry.target.classList.add('show');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.01,
-    rootMargin: '0px 0px -5% 0px'
-  });
-
-  revealElements.forEach((el) => {
-    if (!el.classList.contains('show')) observer.observe(el);
-  });
-
-  window.addEventListener('load', showVisibleReveals);
-}
 
     const formatTime = (time) => {
       if (!isFinite(time)) return '0:00';
@@ -1286,8 +1480,8 @@ if (prefersReducedMotion) {
       };
 
       const updateMuteState = () => {
-  muteBtn.innerHTML = (video.muted || video.volume === 0) ? '&#128263;' : '&#128266;';
-};
+        muteBtn.innerHTML = (video.muted || video.volume === 0) ? '&#128263;' : '&#128266;';
+      };
 
       const updateProgress = () => {
         const value = video.duration ? (video.currentTime / video.duration) * 100 : 0;
@@ -1335,21 +1529,19 @@ if (prefersReducedMotion) {
       });
 
       fullscreenBtn.addEventListener('click', () => {
-  try {
-    // iOS Safari (MOST IMPORTANT)
-    if (video.webkitEnterFullscreen) {
-      video.webkitEnterFullscreen();
-      return;
-    }
+        try {
+          if (video.webkitEnterFullscreen) {
+            video.webkitEnterFullscreen();
+            return;
+          }
 
-    // Other browsers
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else if (player.requestFullscreen) {
-      player.requestFullscreen();
-    }
-  } catch (e) {}
-});
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          } else if (player.requestFullscreen) {
+            player.requestFullscreen();
+          }
+        } catch (e) {}
+      });
 
       video.addEventListener('loadedmetadata', updateProgress);
       video.addEventListener('timeupdate', updateProgress);
@@ -1363,86 +1555,90 @@ if (prefersReducedMotion) {
       updateMuteState();
       updateProgress();
     });
+
     const animateStat = (element) => {
-  const target = Number(element.dataset.target || 0);
-  const suffix = element.dataset.suffix || '';
-  const duration = 1800;
-  const startTime = performance.now();
+      const target = Number(element.dataset.target || 0);
+      const suffix = element.dataset.suffix || '';
+      const duration = 1800;
+      const startTime = performance.now();
 
-  const step = (now) => {
-    const progress = Math.min((now - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = target * eased;
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
 
-    if (suffix === 'k+') {
-      element.textContent = `${Math.floor(current)}k+`;
-    } else if (suffix === 'm+') {
-      element.textContent = `${current.toFixed(progress < 1 ? 1 : 0)}m+`;
-    } else {
-      element.textContent = Math.floor(current);
-    }
+        if (suffix === 'k+') {
+          element.textContent = `${Math.floor(current)}k+`;
+        } else if (suffix === 'm+') {
+          element.textContent = `${current.toFixed(progress < 1 ? 1 : 0)}m+`;
+        } else {
+          element.textContent = Math.floor(current);
+        }
 
-    if (progress < 1) {
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          element.textContent = `${target}${suffix}`;
+        }
+      };
+
       requestAnimationFrame(step);
-    } else {
-      element.textContent = `${target}${suffix}`;
-    }
-  };
+    };
 
-  requestAnimationFrame(step);
-};
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let statsStarted = false;
 
-const statNumbers = document.querySelectorAll('.stat-number');
-let statsStarted = false;
+    const startStatsIfVisible = () => {
+      if (statsStarted) return;
 
-const startStatsIfVisible = () => {
-  if (statsStarted) return;
+      const statsStrip = document.querySelector('.stats-strip');
+      if (!statsStrip) return;
 
-  const statsStrip = document.querySelector('.stats-strip');
-  if (!statsStrip) return;
+      const rect = statsStrip.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.95) {
+        statsStarted = true;
+        statNumbers.forEach(animateStat);
+      }
+    };
 
-  const rect = statsStrip.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.95) {
-    statsStarted = true;
-    statNumbers.forEach(animateStat);
-  }
-};
-
-window.addEventListener('load', startStatsIfVisible);
-window.addEventListener('scroll', startStatsIfVisible, { passive: true });
+    window.addEventListener('load', startStatsIfVisible);
+    window.addEventListener('scroll', startStatsIfVisible, { passive: true });
 
     const reviewForm = document.getElementById('reviewForm');
-const reviewsList = document.getElementById('reviewsList');
+    const reviewsList = document.getElementById('reviewsList');
 
-const renderStars = (count) => '★'.repeat(count) + '☆'.repeat(5 - count);
+    const renderStars = (count) => '★'.repeat(count) + '☆'.repeat(5 - count);
 
-reviewForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+    reviewForm.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-  const name = document.getElementById('reviewName').value.trim();
-  const stars = Number(document.getElementById('reviewStars').value);
-  const message = document.getElementById('reviewMessage').value.trim();
+      const name = document.getElementById('reviewName').value.trim();
+      const stars = Number(document.getElementById('reviewStars').value);
+      const message = document.getElementById('reviewMessage').value.trim();
 
-  if (!name || !stars || !message) return;
+      if (!name || !stars || !message) return;
 
-  const review = document.createElement('article');
-  review.className = 'review-card show';
+      const review = document.createElement('article');
+      review.className = 'review-card show';
 
-  review.innerHTML = `
-    <div class="review-top">
-      <strong class="review-name"></strong>
-      <span class="review-stars"></span>
-    </div>
-    <p class="review-text"></p>
-  `;
+      review.innerHTML = `
+        <div class="review-top">
+          <strong class="review-name"></strong>
+          <span class="review-stars"></span>
+        </div>
+        <p class="review-text"></p>
+      `;
 
-  review.querySelector('.review-name').textContent = name;
-  review.querySelector('.review-stars').textContent = renderStars(stars);
-  review.querySelector('.review-text').textContent = message;
+      review.querySelector('.review-name').textContent = name;
+      review.querySelector('.review-stars').textContent = renderStars(stars);
+      review.querySelector('.review-text').textContent = message;
 
-  reviewsList.prepend(review);
-  reviewForm.reset();
-});
+      reviewsList.prepend(review);
+      reviewForm.reset();
+
+      const currentLang = document.documentElement.dataset.lang || 'en';
+      applyTranslations(currentLang);
+    });
     
   </script>
 </body>
