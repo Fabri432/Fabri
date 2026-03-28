@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8C135MTQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X8C135MTQE');
+</script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fabri Video Editor</title>
@@ -2197,10 +2207,6 @@ body {
   </footer>
 
   <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
- import {
-  getFirestore
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
     
   const firebaseConfig = {
   apiKey: "AIzaSyB_J5pH9E-J3Eft4KPbl-SHhgCSNKiiWlc",
@@ -2543,6 +2549,14 @@ function detectSiteLanguage() {
   };
 
   document.querySelectorAll('.custom-player').forEach((player) => {
+
+    const videoTitle =
+  player.closest('.video-card')?.querySelector('.card-body h3')?.textContent?.trim() ||
+  video.getAttribute('src') ||
+  'unknown_video';
+
+let hasTrackedPlay = false;
+    
     const video = player.querySelector('video');
     const playBtn = player.querySelector('.play-toggle');
     const muteBtn = player.querySelector('.mute-toggle');
@@ -2581,15 +2595,26 @@ function detectSiteLanguage() {
     };
 
     const togglePlay = async () => {
-      pauseOthers();
-      if (video.paused) {
-        try {
-          await video.play();
-        } catch (e) {}
-      } else {
-        video.pause();
+  pauseOthers();
+  if (video.paused) {
+    try {
+      await video.play();
+
+      if (!hasTrackedPlay && typeof gtag === 'function') {
+        gtag('event', 'video_play', {
+          video_title: videoTitle,
+          video_src: video.getAttribute('src') || '',
+          page_location: window.location.href
+        });
+
+        hasTrackedPlay = true;
       }
-    };
+
+    } catch (e) {}
+  } else {
+    video.pause();
+  }
+};
 
     playBtn.addEventListener('click', togglePlay);
     video.addEventListener('click', togglePlay);
