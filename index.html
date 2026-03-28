@@ -2549,22 +2549,22 @@ function detectSiteLanguage() {
   };
 
   document.querySelectorAll('.custom-player').forEach((player) => {
+    
+    const video = player.querySelector('video');
+const playBtn = player.querySelector('.play-toggle');
+const muteBtn = player.querySelector('.mute-toggle');
+const fullscreenBtn = player.querySelector('.fullscreen-toggle');
+const progress = player.querySelector('.progress');
+const volume = player.querySelector('.volume');
+const time = player.querySelector('.player-time');
+const centerPlay = player.querySelector('.play-center');
 
-    const videoTitle =
+const videoTitle =
   player.closest('.video-card')?.querySelector('.card-body h3')?.textContent?.trim() ||
   video.getAttribute('src') ||
   'unknown_video';
 
 let hasTrackedPlay = false;
-    
-    const video = player.querySelector('video');
-    const playBtn = player.querySelector('.play-toggle');
-    const muteBtn = player.querySelector('.mute-toggle');
-    const fullscreenBtn = player.querySelector('.fullscreen-toggle');
-    const progress = player.querySelector('.progress');
-    const volume = player.querySelector('.volume');
-    const time = player.querySelector('.player-time');
-    const centerPlay = player.querySelector('.play-center');
 
     video.muted = false;
     video.volume = 1;
